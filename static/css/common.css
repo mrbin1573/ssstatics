@@ -1,0 +1,142 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  opacity: 1;
+  backface-visibility: hidden;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.add-container-leave-active,
+.add-oneani-enter-active,
+.add-oneani-leave-active,
+.add-twoani-enter-active,
+.add-twoani-leave-active,
+.add-threeani-enter-active,
+.add-threeani-leave-active,
+.footMenu-enter-active,
+.animate-router-enter-active,
+.animate-opacity-enter-active,
+.animate-opacity-leave-active,
+.animate-toTop-enter-active,
+.animate-toTop-leave-active,
+.animate-toBottom-enter-active,
+.animate-toBottom-leave-active,
+.leftPanel-toRight-enter-active,
+.leftPanel-toRight-leave-active,
+.add-oneani-enter-active,
+.add-oneani-leave-active,
+.add-twoani-enter-active,
+.add-twoani-leave-active,
+.add-threeani-enter-active,
+.add-threeani-leave-active {
+  transition: all 0.3s;
+}
+add-container-enter-active {
+  transition: 0.1s;
+}
+.animate-router-leave-active {
+  transition: all 0.3s;
+  position: absolute !important;
+}
+.animate-router-leave-active .tab-container {
+  position: absolute !important;
+  opacity: 0;
+}
+.animate-opacity-enter,
+.animate-opacity-leave-to,
+.animate-router-leave-to,
+.add-container-enter,
+.animate-router-leave-to {
+  opacity: 0;
+}
+.animate-toTop-enter,
+.animate-toTop-leave-to,
+.animate-router-enter {
+  transform: translateX(0);
+  transform: translateY(0.5rem);
+  opacity: 0;
+}
+.animate-toBottom-enter,
+.animate-toBottom-leave-to {
+  transform: translateX(0);
+  transform: translateY(-0.5rem);
+  opacity: 0;
+}
+.add-oneani-enter,
+.add-oneani-leave-to {
+  opacity: 0;
+  margin-bottom: -2.7rem;
+  margin-left: 2.2rem;
+}
+.add-twoani-enter,
+.add-twoani-leave-to {
+  opacity: 0;
+  transform: translateY(3.5rem);
+}
+.add-threeani-enter,
+.add-threeani-leave-active {
+  opacity: 0;
+  margin-bottom: -2.7rem;
+  margin-left: -2.25rem;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+.nav-bar {
+  height: 0.66666667rem;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+.toLeft {
+  transition: left 0;
+}
+@font-face {
+  font-family: 'test';
+  src: url('../fonts/yegenyoumaobi.ttf');
+}
+@font-face {
+  font-family: 'dxs';
+  src: url('../fonts/dxs.ttf');
+}
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #999999 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .3s, opacity .5s;
+}
+.ripple:active:after {
+  transform: scale(0, 0);
+  opacity: .3;
+  transition: 0s;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}

@@ -1,0 +1,246 @@
+// 说明
+// z-index:、、、
+@zBottomMenu:100;//底部菜单
+@zAddPanel:90;//add-panel
+@zTopMenu:80;//顶部导航
+@zAddShadow:@zAddPanel;//加号阴影
+@zSearchPanel:@zAddPanel;//搜索界面
+@zRouterRes:70;//路由渲染位置
+@zleftMenu:110;//左边划出菜单
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; //padding等往内，不影响布局
+  opacity: 1;
+  backface-visibility: hidden;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+//---菜单切换动画效果--------
+// ===================动画时长 统一设置=============
+
+//全局动画时间
+@animateTime:all 0.3s;
+
+.add-container-leave-active,//添加页面 离开 让按钮离开能看见
+//添加三个按钮菜单进入 离开
+.add-oneani-enter-active,//第一个 进入
+.add-oneani-leave-active,//第一个 离开
+.add-twoani-enter-active,//第二个 进入
+.add-twoani-leave-active,//第二个 离开
+.add-threeani-enter-active,//第三个 进入
+.add-threeani-leave-active,//第三个 离开
+
+.footMenu-enter-active,//点击搜索自动聚焦时，底部菜单迅速消失，延迟出现
+
+.animate-router-enter-active,//路由单页面出现
+//全局统一动画：
+.animate-opacity-enter-active,//透明变化
+.animate-opacity-leave-active,
+
+.animate-toTop-enter-active,//页面向上渐进出现，向下逐渐消失
+.animate-toTop-leave-active,
+
+.animate-toBottom-enter-active,//页面向上渐进出现，向下逐渐消失
+.animate-toBottom-leave-active,
+
+.leftPanel-toRight-enter-active,//左边画出页面
+.leftPanel-toRight-leave-active,
+
+.add-oneani-enter-active,.add-oneani-leave-active,
+.add-twoani-enter-active,.add-twoani-leave-active,
+.add-threeani-enter-active,.add-threeani-leave-active,
+
+{
+  transition: @animateTime;
+  // transition:all 50s;
+}
+
+add-container-enter-active{
+  transition: 0.1s;
+}
+//路由单页面迅速消失
+.animate-router-leave-active{
+  // transition: 0s;
+  transition: @animateTime;
+  position: absolute !important;
+  // top:@statusBar-height + @menu-height - 0.4466667rem;
+  .tab-container{
+    position: absolute !important;
+    opacity: 0;
+    // top:0;
+  }
+}
+
+//统一动画：只有 透明变化
+.animate-opacity-enter,.animate-opacity-leave-to,.animate-router-leave-to,.add-container-enter,.animate-router-leave-to{
+  opacity: 0;
+}
+
+//页面向上渐进出现，向下逐渐消失 初始 末尾状态
+.animate-toTop-enter,.animate-toTop-leave-to,.animate-router-enter{
+  // margin-left:0;
+  // margin-top: 0.2rem;
+  transform: translateX(0);
+  transform: translateY(0.5rem);
+  opacity: 0;
+}
+//页面向下渐进出现，向上逐渐消失 初始 末尾状态
+.animate-toBottom-enter,.animate-toBottom-leave-to{
+  transform: translateX(0);
+  transform: translateY(-0.5rem);
+  opacity: 0;
+}
+
+// 第一个按钮菜单
+.add-oneani-enter,.add-oneani-leave-to{
+  opacity: 0;
+  margin-bottom: -2.7rem;
+  margin-left: 2.2rem;
+  // transform: translateX(2.2rem);
+  // transform: translateY(-2.7rem);
+}
+// 第二个按钮菜单
+.add-twoani-enter,.add-twoani-leave-to{
+  opacity: 0;
+  // margin-bottom: -3.5rem;
+  transform: translateY(3.5rem);
+}
+// 第三个按钮菜单
+.add-threeani-enter,.add-threeani-leave-active{
+  opacity: 0;
+  margin-bottom: -2.7rem;
+  margin-left: -2.25rem;
+  // transform: translateX(-2.25rem);
+  // transform: translateY(-2.7rem);
+}
+
+// ----公共变量-------
+// 主题颜色
+@main-color:#1cc074;
+@main-dkcolor:#15975a;
+
+//黑色
+@main-ltblack: rgb(70, 70, 70);
+@main-black: #1F1F21;
+@main-dkblack: rgb(16, 16, 17);
+
+//黄色
+@main-yellow: #FF9500;
+@main-dkyellow: rgb(206, 124, 10);
+
+//红色
+@main-red: #FF3B30;
+@main-dkred: rgb(158, 38, 34);
+
+//蓝色
+@main-blue: #007AFF;
+@main-dkblue: rgb(23, 101, 179);
+
+//浅灰色
+@light-gray: rgb(199, 199, 199);
+
+//灰色
+@main-gray: #8E8E93;
+
+//深灰色
+@main-dkgray: rgb(77, 77, 77);
+
+//分割线颜色
+@lineColor: #e4e4e4;
+
+//分割线轻颜色
+@lineLightColor: #f3f3f3;
+
+
+// 状态栏高度：50 px
+@statusBar-height:50/75rem;
+
+// 主菜单栏 顶部菜单高度：96 px
+@menu-height: 96/75rem;
+
+//添加按钮宽高
+@addBtn-height: 120/75rem;
+
+//左右边距
+@paddingTwoside: 0 30/75rem;
+
+// 中间哒的上下边距
+@paddingTopAndBottom:146/75rem 0 1.5rem;
+// 字体大小
+.fontSize(@fontSize){
+  font-size:@fontSize;
+}
+
+//高斯模糊
+.filter(@filterSize){
+  filter: blur(@filterSize/75rem);
+}
+
+//清除浮动
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+//状态栏
+.nav-bar{
+  height: @statusBar-height;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.toLeft{
+  transition: left 0;
+}
+
+@font-face{
+  font-family: 'test';
+  src: url('../fonts/yegenyoumaobi.ttf');
+}
+@font-face{
+  font-family: 'dxs';
+  src: url('../fonts/dxs.ttf');
+}
+.ripple {
+  position: relative;
+  //隐藏溢出的径向渐变背景
+  overflow: hidden;
+}
+
+.ripple:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  //设置径向渐变
+  background-image: radial-gradient(circle, rgb(153, 153, 153) 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .3s, opacity .5s;
+}
+
+.ripple:active:after {
+  transform: scale(0, 0);
+  opacity: .3;
+  //设置初始状态
+  transition: 0s;
+}
+//旋转动画
+@keyframes rotate{
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(-360deg)}
+}
